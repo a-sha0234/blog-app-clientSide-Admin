@@ -1,5 +1,19 @@
-function App() {
-  return <div className="App"></div>;
-}
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-export default App;
+import Navbar from "./components/Navbar";
+
+import Login from "./pages/Login";
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <div className="App">
+        {" "}
+        <Navbar />
+      </div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
