@@ -5,7 +5,16 @@ export default function Navbar() {
   return (
     <nav>
       <ul>
-        <Link to="/">Log in</Link>
+        <li>
+          {" "}
+          <Link to="/">Log in</Link>
+        </li>
+
+        <li>
+          <Link to="/">
+            <button>Log out</button>
+          </Link>{" "}
+        </li>
       </ul>
     </nav>
   );
