@@ -7,11 +7,10 @@ import React from "react";
 export default function Login(props) {
   const navigate = useNavigate();
   React.useEffect(() => {
-    if (localStorage.getItem("user-info")) {
+    if (localStorage.getItem("user-info") && props.loggedValue == true) {
       navigate("/posts");
-      console.log(props);
     }
-  }, []);
+  }, [props.loggedValue]);
 
   const [formData, setFormData] = React.useState({
     username: "",
@@ -46,6 +45,8 @@ export default function Login(props) {
       .then((result) => result.json())
       .then((userInfo) => {
         localStorage.setItem("user-info", JSON.stringify(userInfo));
+
+        props.setIsLoggedIn(true);
       });
   }
 
