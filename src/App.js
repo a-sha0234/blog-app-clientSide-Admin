@@ -13,10 +13,15 @@ export default function App() {
     <BrowserRouter>
       <div className="App">
         {" "}
-        <Navbar setIsLoggedIn={setIsLoggedIn} />
+        <Navbar setIsLoggedIn={setIsLoggedIn} loggedValue={isLoggedIn} />
       </div>
       <Routes>
-        <Route path="/" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+        <Route
+          path="/"
+          element={
+            <Login setIsLoggedIn={setIsLoggedIn} loggedValue={isLoggedIn} />
+          }
+        />
         <Route path="/posts" element={<Posts />} />
       </Routes>
     </BrowserRouter>
