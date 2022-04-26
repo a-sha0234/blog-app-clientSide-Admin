@@ -1,20 +1,32 @@
 import { Link } from "react-router-dom";
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar(props) {
+  console.log(props);
+
+  function handleLogOut() {
+    localStorage.removeItem("user-info");
+    props.setIsLoggedIn(false);
+  }
+
   return (
     <nav>
       <ul>
-        <li>
-          {" "}
-          <Link to="/">Log in</Link>
-        </li>
+        {props.loggedValue == false && (
+          <li>
+            <Link to="/">
+              <button>Log in</button>
+            </Link>
+          </li>
+        )}
 
-        <li>
-          <Link to="/">
-            <button>Log out</button>
-          </Link>{" "}
-        </li>
+        {props.loggedValue == true && (
+          <li>
+            <Link to="/">
+              <button onClick={handleLogOut}>Log out</button>
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
