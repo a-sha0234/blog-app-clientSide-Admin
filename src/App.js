@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Posts from "./pages/posts";
 
 import Login from "./pages/Login";
+import AddBlog from "./pages/AddBlog";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -23,6 +24,7 @@ export default function App() {
           }
         />
         <Route path="/posts" element={<Posts />} />
+        <Route path="/add-blog" element={<AddBlog />} />
       </Routes>
     </BrowserRouter>
   );
