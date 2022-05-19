@@ -27,6 +27,10 @@ export default function Navbar(props) {
             </Link>
           </li>
         )}
+
+        <li>
+          <Link to="/add-blog">Add blog</Link>
+        </li>
       </ul>
     </nav>
   );
