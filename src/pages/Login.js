@@ -6,6 +6,7 @@ import React from "react";
 
 export default function Login(props) {
   const navigate = useNavigate();
+
   React.useEffect(() => {
     if (localStorage.getItem("user-info") && props.loggedValue == true) {
       navigate("/posts");
