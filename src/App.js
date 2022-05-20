@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 
 import Navbar from "./components/Navbar";
 import Posts from "./pages/posts";
@@ -8,7 +8,9 @@ import Login from "./pages/Login";
 import AddBlog from "./pages/AddBlog";
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  let getToken = localStorage.getItem("user-info"); //store token
+
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false); // track if logged in or not
 
   return (
     <BrowserRouter>
@@ -23,8 +25,8 @@ export default function App() {
             <Login setIsLoggedIn={setIsLoggedIn} loggedValue={isLoggedIn} />
           }
         />
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/add-blog" element={<AddBlog />} />
+        <Route path="/posts" element={<Posts getToken={getToken} />} />
+        <Route path="/add-blog" element={<AddBlog getToken={getToken} />} />
       </Routes>
     </BrowserRouter>
   );
