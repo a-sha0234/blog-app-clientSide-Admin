@@ -28,9 +28,19 @@ export default function Navbar(props) {
           </li>
         )}
 
-        <li>
-          <Link to="/add-blog">Add blog</Link>
-        </li>
+        {props.loggedValue == true && (
+          <li>
+            <Link to="/add-blog">Add blog</Link>
+          </li>
+        )}
+
+        {props.loggedValue == true && (
+          <li>
+            <Link to="/posts">
+              <button>Posts</button>
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
