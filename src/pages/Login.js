@@ -8,7 +8,11 @@ export default function Login(props) {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (localStorage.getItem("user-info") && props.loggedValue == true) {
+    // if logged in, this should navigate you to the home page
+    if (
+      localStorage.getItem("user-info") &&
+      sessionStorage.getItem("isLoggedIn")
+    ) {
       navigate("/posts");
     }
   }, [props.loggedValue]);
@@ -19,6 +23,7 @@ export default function Login(props) {
   });
 
   function handleFormChange(event) {
+    // track changes from each keystroke
     const { name, value } = event.target;
     setFormData((prev) => {
       return {
@@ -46,7 +51,7 @@ export default function Login(props) {
       .then((result) => result.json())
       .then((userInfo) => {
         localStorage.setItem("user-info", JSON.stringify(userInfo));
-
+        sessionStorage.setItem("isLoggedIn", "true");
         props.setIsLoggedIn(true);
       });
   }
