@@ -6,13 +6,14 @@ export default function Navbar(props) {
 
   function handleLogOut() {
     localStorage.removeItem("user-info");
+    sessionStorage.removeItem("isLoggedIn");
     props.setIsLoggedIn(false);
   }
 
   return (
     <nav>
       <ul>
-        {props.loggedValue == false && (
+        {!sessionStorage.getItem("isLoggedIn") && (
           <li>
             <Link to="/">
               <button>Log in</button>
@@ -20,7 +21,7 @@ export default function Navbar(props) {
           </li>
         )}
 
-        {props.loggedValue == true && (
+        {sessionStorage.getItem("isLoggedIn") && (
           <li>
             <Link to="/">
               <button onClick={handleLogOut}>Log out</button>
@@ -28,13 +29,13 @@ export default function Navbar(props) {
           </li>
         )}
 
-        {props.loggedValue == true && (
+        {sessionStorage.getItem("isLoggedIn") && (
           <li>
             <Link to="/add-blog">Add blog</Link>
           </li>
         )}
 
-        {props.loggedValue == true && (
+        {sessionStorage.getItem("isLoggedIn") && (
           <li>
             <Link to="/posts">
               <button>Posts</button>
