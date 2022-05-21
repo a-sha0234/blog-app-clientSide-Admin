@@ -2,9 +2,11 @@ import { Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 
-import React from "react";
+import React, { useState } from "react";
 
 export default function Login(props) {
+  const [errorMessage, setErrorMessage] = useState();
+
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -48,11 +50,19 @@ export default function Login(props) {
       },
       body: JSON.stringify(credentials),
     })
-      .then((result) => result.json())
+      .then((result) => {
+        if (!result.ok) {
+          throw Error("could not fetch authentication data ");
+        }
+        return result.json();
+      })
       .then((userInfo) => {
         localStorage.setItem("user-info", JSON.stringify(userInfo));
         sessionStorage.setItem("isLoggedIn", "true");
         props.setIsLoggedIn(true);
+      })
+      .catch((err) => {
+        setErrorMessage(err.message);
       });
   }
 
@@ -67,6 +77,7 @@ export default function Login(props) {
           name="username"
           value={formData.username}
           onChange={handleFormChange}
+          required
         />
         {/*  */}
         <Form.Label>Password</Form.Label>
@@ -76,12 +87,15 @@ export default function Login(props) {
           name="password"
           value={formData.password}
           onChange={handleFormChange}
+          required
         />
         {/*  */}
         <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>
+
+      {errorMessage && <div className="errorMessage">{errorMessage}</div>}
     </main>
   );
 }
