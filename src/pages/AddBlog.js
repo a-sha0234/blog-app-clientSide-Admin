@@ -20,7 +20,6 @@ export default function AddBlog(props) {
 
   function handleSubmit(event) {
     // submission causes creates a new blog item in database
-    event.preventDefault();
 
     console.log(JSON.stringify(addBlogData));
 
@@ -32,6 +31,8 @@ export default function AddBlog(props) {
       },
 
       body: JSON.stringify(addBlogData),
+    }).catch((err) => {
+      console.log(err);
     });
   }
 
@@ -45,6 +46,7 @@ export default function AddBlog(props) {
           placeholder="Author"
           onChange={handleChange}
           type="text"
+          required
         ></input>
 
         <label>Title</label>
@@ -54,16 +56,18 @@ export default function AddBlog(props) {
           placeholder="title"
           onChange={handleChange}
           type="text"
+          required
         ></input>
 
         <label>Blog text</label>
-        <input
+        <textarea
           name="blogtext"
           value={addBlogData.text}
           placeholder="text"
           onChange={handleChange}
           type="text"
-        ></input>
+          required
+        ></textarea>
         <button>Submit</button>
       </form>
     </div>
