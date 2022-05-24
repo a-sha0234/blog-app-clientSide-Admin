@@ -20,7 +20,7 @@ export default function AddBlog(props) {
 
   function handleSubmit(event) {
     // submission causes creates a new blog item in database
-
+    event.preventDefault();
     console.log(JSON.stringify(addBlogData));
 
     fetch("http://localhost:3002/add", {
