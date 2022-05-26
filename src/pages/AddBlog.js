@@ -37,9 +37,8 @@ export default function AddBlog(props) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Author</label>
+    <div className="formcontainer">
+      <form onSubmit={handleSubmit} className="form">
         <input
           name="Author"
           value={addBlogData.Author}
@@ -49,7 +48,6 @@ export default function AddBlog(props) {
           required
         ></input>
 
-        <label>Title</label>
         <input
           name="title"
           value={addBlogData.title}
@@ -59,7 +57,6 @@ export default function AddBlog(props) {
           required
         ></input>
 
-        <label>Blog text</label>
         <textarea
           name="blogtext"
           value={addBlogData.text}
