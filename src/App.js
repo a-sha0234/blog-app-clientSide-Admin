@@ -6,6 +6,7 @@ import Posts from "./pages/posts";
 
 import Login from "./pages/Login";
 import AddBlog from "./pages/AddBlog";
+import "../src/scss/main.scss";
 
 export default function App() {
   let getToken = localStorage.getItem("user-info"); //store token
