@@ -12,33 +12,36 @@ export default function Navbar(props) {
 
   return (
     <nav>
-      <ul>
+      <ul className="navbar">
         {!sessionStorage.getItem("isLoggedIn") && (
           <li>
             <Link to="/">
-              <button>Log in</button>
+              <button className="navbar__button">Log in</button>
             </Link>
-          </li>
-        )}
-
-        {sessionStorage.getItem("isLoggedIn") && (
-          <li>
-            <Link to="/">
-              <button onClick={handleLogOut}>Log out</button>
-            </Link>
-          </li>
-        )}
-
-        {sessionStorage.getItem("isLoggedIn") && (
-          <li>
-            <Link to="/add-blog">Add blog</Link>
           </li>
         )}
 
         {sessionStorage.getItem("isLoggedIn") && (
           <li>
             <Link to="/posts">
-              <button>Posts</button>
+              <button className="navbar__button">Posts</button>
+            </Link>
+          </li>
+        )}
+
+        {sessionStorage.getItem("isLoggedIn") && (
+          <li>
+            <Link to="/add-blog">
+              <button>Add blog</button>
+            </Link>
+          </li>
+        )}
+        {sessionStorage.getItem("isLoggedIn") && (
+          <li>
+            <Link to="/">
+              <button onClick={handleLogOut} className="navbar__button">
+                Log out
+              </button>
             </Link>
           </li>
         )}
