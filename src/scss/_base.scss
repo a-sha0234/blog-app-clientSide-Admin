@@ -1,0 +1,22 @@
+//reset
+* {
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  font-family: "Roboto Flex", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  border: none;
+}
+
+//mixin
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap");
