@@ -1,0 +1,26 @@
+//navbar
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+}
+
+button {
+  background-color: rgba(18, 107, 240, 0.473);
+  padding: 10px;
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+label,
+input,
+button,
+textarea {
+  display: block;
+  margin: 30px;
+}
+
+textarea {
+  width: 500px;
+  height: 300px;
+}
