@@ -12,7 +12,7 @@ export default function Posts(props) {
 
   useEffect(() => {
     // get all posts
-    fetch("http://localhost:3002/posts", {
+    fetch("https://blogapi-server.herokuapp.com/posts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -45,13 +45,16 @@ export default function Posts(props) {
 
   function handleDelete(event) {
     // delete posts
-    fetch(`http://localhost:3002/posts/${event.target.className}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: props.getToken,
-      },
-    }).then((result) => {
+    fetch(
+      `https://blogapi-server.herokuapp.com/posts/${event.target.className}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: props.getToken,
+        },
+      }
+    ).then((result) => {
       if (!result.ok) {
         throw Error("could not delete post ");
       }

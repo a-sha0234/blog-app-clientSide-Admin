@@ -40,7 +40,7 @@ export default function Login(props) {
     let password = event.target.password.value;
     let credentials = { username, password };
 
-    fetch("http://localhost:3002/login", {
+    fetch("https://blogapi-server.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -23,7 +23,7 @@ export default function AddBlog(props) {
     event.preventDefault();
     console.log(JSON.stringify(addBlogData));
 
-    fetch("http://localhost:3002/add", {
+    fetch("https://blogapi-server.herokuapp.com/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
