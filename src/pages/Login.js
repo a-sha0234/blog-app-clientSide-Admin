@@ -1,5 +1,3 @@
-import { Button, Form } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 
 import React, { useState } from "react";
@@ -67,33 +65,33 @@ export default function Login(props) {
   }
 
   return (
-    <main>
-      <Form onSubmit={handleSubmit} method="post">
+    <main className="loginForm">
+      <form onSubmit={handleSubmit} method="post">
         {" "}
-        <Form.Label>Username</Form.Label>
-        <Form.Control
+        <label>Username</label>
+        <input
           type="text"
           placeholder="Enter username"
           name="username"
           value={formData.username}
           onChange={handleFormChange}
           required
-        />
+        ></input>
         {/*  */}
-        <Form.Label>Password</Form.Label>
-        <Form.Control
+        <label>Password</label>
+        <input
           type="text"
           placeholder="Enter password"
           name="password"
           value={formData.password}
           onChange={handleFormChange}
           required
-        />
+        ></input>
         {/*  */}
-        <Button variant="primary" type="submit">
+        <button variant="primary" type="submit">
           Submit
-        </Button>
-      </Form>
+        </button>
+      </form>
 
       {errorMessage && <div className="errorMessage">{errorMessage}</div>}
     </main>
